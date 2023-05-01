@@ -1,0 +1,36 @@
+.container{
+    height: 500px;
+    width: 100%;
+    display: flex;
+}
+.wrapper{
+    width: 85%;
+    background-color: red;
+    height: 100%;
+}
+
+.lists > :nth-child(2n+1){
+    background-color: #0A0A0A;
+    color: white;
+}
+
+.lists > :nth-child(2n){
+    background-color: rgb(50, 50, 50);
+    color: black;
+    justify-content: flex-end;
+}
+
+.lists > :nth-child(2n) > .wrapper{
+    background-color: blue;
+    align-self: center;
+}
+
+.link{
+    width: fit-content;
+    text-align: center;
+    background-color: rgb(43, 224, 7);
+    font-weight: 600;
+    padding: 16px;
+    color: black;
+    border-radius: 5px;
+}

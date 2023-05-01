@@ -1,0 +1,36 @@
+.container{
+    width: 100%;
+    /* border-bottom: 2px solid grey; */
+    position: fixed;
+    top: 0;
+    background-color: rgb(17, 17, 17);
+}
+.wrapper{
+    width: 100%;
+    max-width: 1200px;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+    display: flex;
+    padding: 12px 24px;
+    height: 100px;
+    box-sizing: border-box;
+    color: rgb(174, 174, 174);
+    font-weight: 700;
+}
+.logoContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+.list{
+    display: flex;
+    list-style: none;
+}
+.list > li {
+    margin-left: 20px;
+}
+.carts{
+ margin-right: 16px;
+}

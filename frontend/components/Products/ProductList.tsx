@@ -5,9 +5,9 @@ export const ProductList = () => {
 
     return (
         <div className={classes.lists}>
-            <Product name="マウス"></Product>
-            <Product name="キーボード"></Product>
-            <Product name="ヘッドフォン"></Product>
+            <Product name="マウス" path="mouse"></Product>
+            <Product name="キーボード" path="keybord"></Product>
+            <Product name="ヘッドフォン" path="headphone"></Product>
         </div>
         
     );

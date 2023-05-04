@@ -1,0 +1,25 @@
+.container{
+    flex-grow: 1;
+    background-color: white;
+
+}
+.text{
+    display: flex;
+}
+.colors{
+    
+}
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width:100px ;
+    font-size: 16px;
+    border: 1px solid grey;
+}
+.btns > button{
+    background-color: inherit;
+    border: none;
+    font-size: 24px;
+    vertical-align: middle;
+}

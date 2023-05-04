@@ -1,9 +1,12 @@
 import classes from "./styles/hero.module.css";
+import homeCss from "../../src/styles/Home.module.css";
+import { Box } from "@chakra-ui/react";
+
 
 export const Hero = () => {
     return (
-        <div className={classes.hero}>
+        <Box className={`${classes.hero} ${homeCss.header_margin}`}>
            
-        </div>
+        </Box>
     );
 }

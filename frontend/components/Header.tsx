@@ -12,20 +12,20 @@ export const Header = () => {
             </Link>
           <ul className={classes.list}>
             <li>
-              <Link href="#">マウス</Link>
+              <Link href="/merchandise/mouse">マウス</Link>
             </li>
             <li>
-              <Link href="#">キーボード</Link>
+              <Link href="/merchandise//keybord">キーボード</Link>
             </li>
             <li>
-              <Link href="#">ヘッドフォン</Link>
+              <Link href="/merchandise//headphone">ヘッドフォン</Link>
             </li>
           </ul>
         </div>
         <div className={classes.menu}>
           <Link href="/cart" className={classes.carts}>カート</Link>
           <button className={classes.serach}>探す</button>
-          <Link href="/" className={classes.carts}>ログイン</Link>
+          <Link href="/login" className={classes.carts}>ログイン</Link>
         </div>
       </div>
     </header>

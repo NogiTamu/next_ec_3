@@ -1,11 +1,12 @@
+import { Flex, Heading, Text } from "@chakra-ui/react";
 import classes from "./styles/title.module.css";
 
 export const Title = () => {
     return (
-        <div className={classes.container}>
-            <h2 className={classes.heading}>最高のゲーミングアイテム</h2>
-            <p className={classes.text}>最先端のテクノロジーが詰まった最高品質のアイテムで<br />最高のパフォーマンスをサポートします。</p>
-        </div>
+        <Flex className={classes.container}>
+            <Heading className={classes.heading}>最高のゲーミングアイテム</Heading>
+            <Text className={classes.text}>最先端のテクノロジーが詰まった最高品質のアイテムで<br />最高のパフォーマンスをサポートします。</Text>
+        </Flex>
     );
 }
 

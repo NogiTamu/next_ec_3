@@ -1,0 +1,19 @@
+.container{
+    width: 35%;
+    /* background-color: blue; */
+    display: flex;
+    align-items: center;
+}
+.container:not(:first-of-type){
+    border-top: 1px solid grey;
+}
+.text{
+    display: flex;
+    flex-basis: 75%;
+}
+.prices{
+    display: flex;
+    align-items: center;
+    min-width: 120px;
+    justify-content: space-between;
+}

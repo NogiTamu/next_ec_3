@@ -3,5 +3,11 @@ const nextConfig = {
   reactStrictMode: true,
   
 }
+module.exports = {
+  images: {
+    domains: ['localhost'],
+  }
+  ,nextConfig
 
-module.exports = nextConfig
+};
+

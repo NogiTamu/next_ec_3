@@ -4,7 +4,13 @@ import Detail from "./detail";
 import classes from "./styles/cartinside.module.css";
 import DeleteButton from "./deleteButton";
 
-const Inside = () => {
+type Props = {
+  page?:string
+}
+
+const Inside = (props:Props) => {
+  const {page} = props
+  
   const merchandise = [
     {
       img: "/matu.jpg",
@@ -24,15 +30,15 @@ const Inside = () => {
     },
   ];
   return (
-    <Box>
+    <Box  maxWidth="800px" w="50%">
       {merchandise.map((m, i) => (
-        <Container className={classes.container}>
+        <Container className={classes.container} w="100%">
           <Image src={m.img} alt="商品画像" width={120} height={120} />
           <Container className={classes.text}>
-            <Detail merchandise={m} />
+            <Detail merchandise={m} page={page}/>
             <Flex className={classes.prices} >
               <Text>￥{(m.price * m.quantity).toLocaleString()}</Text>
-              <DeleteButton />
+              {page === "cart" ? <DeleteButton /> :<></>} 
             </Flex>
           </Container>
         </Container>

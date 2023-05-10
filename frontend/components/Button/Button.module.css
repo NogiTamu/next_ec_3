@@ -1,0 +1,12 @@
+.primary{
+    padding: 16px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    display: block;
+}
+.primary:hover{
+    opacity: 0.8;
+}

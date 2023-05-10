@@ -1,5 +1,5 @@
 import IncDecButton from "./incDecButton";
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Text } from "@chakra-ui/react";
 import classes from "./styles/cartdetail.module.css";
 
 type Props = {
@@ -11,20 +11,30 @@ type Props = {
     zaiko: boolean;
     quantity: number;
   };
-  cart?: boolean;
+  page?: string;
 };
 
 const Detail = (props: Props) => {
-  const { merchandise } = props;
+  const { merchandise,page } = props;
   return (
-    <Box className={classes.container} >
-      <Text fontSize="lg" fontWeight={700}>{merchandise.name}</Text>
+    <Box className={classes.container}>
+      <Text fontSize="lg" fontWeight={700}>
+        {merchandise.name}
+      </Text>
       <Box className={classes.text}>
         <Box className={classes.colors}>
           <Text fontWeight={700}>{merchandise.color}</Text>
-          {merchandise.zaiko ? <Text color="green">在庫あり</Text> : <Text>在庫切れ</Text>}
+          {page === "cart" ? (
+            merchandise.zaiko ? (
+              <Text color="green">在庫あり</Text>
+            ) : (
+              <Text>在庫切れ</Text>
+            )
+          ) : (
+            <></>
+          )}
         </Box>
-        <IncDecButton q={merchandise.quantity}></IncDecButton>
+       {page==="cart" ? <IncDecButton q={merchandise.quantity}></IncDecButton> :<></>} 
       </Box>
     </Box>
   );

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "merchandise",
     "pluralName": "merchandises",
-    "displayName": "merchandise"
+    "displayName": "merchandise",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,11 +18,19 @@
     "price": {
       "type": "biginteger"
     },
-    "brand": {
-      "type": "string"
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     },
-    "create": {
-      "type": "date"
+    "color": {
+      "type": "string",
+      "required": true
+    },
+    "zaiko": {
+      "type": "integer"
     }
   }
 }

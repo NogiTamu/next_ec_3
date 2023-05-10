@@ -1,8 +1,9 @@
 import { Flex, Stack, Text } from "@chakra-ui/react";
+import PrimaryButton from "components/Button/PrimaryButton";
 
 const Total = () => {
   return (
-    <Stack bg="grey" minWidth="300px" p="40px" h="fit-content" spacing="5">
+    <Stack bg="#dddddd"  minWidth="360px" p="40px" h="fit-content" spacing="5">
       <Flex justify="space-between">
         <Text>注文内容</Text>
         <Text>2件</Text>
@@ -25,6 +26,7 @@ const Total = () => {
         <Text>合計</Text>
         <Text>￥5000</Text>
       </Flex>
+      <PrimaryButton path="/cart/confirm" text="購入手続きへ進む" />
     </Stack>
   );
 };

@@ -3,6 +3,8 @@ import { Box, Container,Flex, Text } from '@chakra-ui/react'
 import Detail from "./detail";
 import classes from "./styles/cartinside.module.css";
 import DeleteButton from "./deleteButton";
+import { useAtom } from "jotai";
+import { cartAtom } from "@/atom";
 
 type Props = {
   page?:string
@@ -10,35 +12,20 @@ type Props = {
 
 const Inside = (props:Props) => {
   const {page} = props
+  const [cart, setCart] = useAtom(cartAtom);
   
-  const merchandise = [
-    {
-      img: "/matu.jpg",
-      name: "松村沙友理",
-      price: 4650,
-      color: "black",
-      zaiko: true,
-      quantity: 1,
-    },
-    {
-      img: "/matu.jpg",
-      name: "菅原幸彦",
-      price: 450,
-      color: "black",
-      zaiko: true,
-      quantity: 50,
-    },
-  ];
+
+
   return (
     <Box  maxWidth="800px" w="50%">
-      {merchandise.map((m, i) => (
+      {cart.map((c, i) => (
         <Container key={i} className={classes.container} w="100%">
-          <Image src={m.img} alt="商品画像" width={120} height={120} />
+          <Image src={`${process.env.NEXT_PUBLIC_API_URL}${c.img}`}  alt="商品画像" width={120} height={120} />
           <Container className={classes.text}>
-            <Detail merchandise={m} page={page}/>
+            <Detail merchandise={c} page={page}/>
             <Flex className={classes.prices} >
-              <Text>￥{(m.price * m.quantity).toLocaleString()}</Text>
-              {page === "cart" ? <DeleteButton /> :<></>} 
+              <Text>￥{(c.price * c.quantity).toLocaleString()}</Text>
+              {page === "cart" ? <DeleteButton name={c.name}/> :<></>} 
             </Flex>
           </Container>
         </Container>

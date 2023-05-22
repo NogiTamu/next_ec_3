@@ -8,14 +8,16 @@ type Props = {
     name: string;
     price: number;
     color: string;
-    zaiko: boolean;
+    zaiko: any;
     quantity: number;
   };
   page?: string;
 };
 
+
 const Detail = (props: Props) => {
   const { merchandise,page } = props;
+
   return (
     <Box className={classes.container}>
       <Text fontSize="lg" fontWeight={700}>
@@ -25,8 +27,8 @@ const Detail = (props: Props) => {
         <Box className={classes.colors}>
           <Text fontWeight={700}>{merchandise.color}</Text>
           {page === "cart" ? (
-            merchandise.zaiko ? (
-              <Text color="green">在庫あり</Text>
+            merchandise.zaiko !==0 ? (
+              <Text color="green">在庫あり{merchandise.zaiko}</Text>
             ) : (
               <Text>在庫切れ</Text>
             )

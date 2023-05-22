@@ -1,7 +1,7 @@
 import {
-  merchandiseLists,
-  selectedCategorie,
-  squeezeMerchandise,
+  merchandiseListsAtom,
+  selectedCategorieAtom,
+  squeezeMerchandiseAtom,
 } from "@/atom";
 import { gql, useQuery } from "@apollo/client";
 import { Checkbox, VStack } from "@chakra-ui/react";
@@ -25,8 +25,8 @@ type categoryType = {
   attributes: { sub_category: string; display: string };
 };
 const SqueezeMenu = () => {
-  const [merchandiseList, setMerchandiseLists] = useAtom(merchandiseLists);
-  const [squeezeMerchandises, setSqueezeMerchandises] = useAtom(squeezeMerchandise);
+  const [merchandiseList, setMerchandiseLists] = useAtom(merchandiseListsAtom);
+  const [squeezeMerchandises, setSqueezeMerchandises] = useAtom(squeezeMerchandiseAtom);
   const { loading, error, data } = useQuery(query);
   const subCategory: string[] = [];
   const displayLists: string[] = [];
@@ -37,7 +37,7 @@ const SqueezeMenu = () => {
   });
 
   const [selectedCategories, setSelectedCategories] =
-    useAtom(selectedCategorie);
+    useAtom(selectedCategorieAtom);
 
   const handleCategoryChange = (category) => {
     if (selectedCategories.includes(category)) {

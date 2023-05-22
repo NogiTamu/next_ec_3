@@ -4,31 +4,20 @@ import SqueezeMenu from "components/SqueezeMenu";
 import MerchandiseBox from "./MerchandiseBox";
 import { useAtom } from "jotai";
 import {
-  merchandiseLists,
-  selectedCategorie,
-  squeezeMerchandise,
+  merchandiseListsAtom,
+  selectedCategorieAtom,
+  squeezeMerchandiseAtom,
 } from "@/atom";
-import { useEffect, useLayoutEffect, useState } from "react";
+import {  useState } from "react";
 
 const Products = () => {
-  const [merchandiseList, setMerchandiseLists] = useAtom(merchandiseLists);
-  const [squeezeMerchandises, setSqueezeMerchandises] =
-    useAtom(squeezeMerchandise);
+  const [merchandiseList, setMerchandiseLists] = useAtom(merchandiseListsAtom);
+  const [squeezeMerchandises, setSqueezeMerchandises] = useAtom(squeezeMerchandiseAtom);
   const [selectedCategories, setSelectedCategories] =
-    useAtom(selectedCategorie);
+    useAtom(selectedCategorieAtom);
 
   const [merchandises, setMerchandises] = useState([]);
 
-  // useLayoutEffect(() => {
-  //   let m =
-  //     selectedCategories.length !== 0 && squeezeMerchandises.length === 0
-  //       ? []
-  //       : squeezeMerchandises.length !== 0
-  //       ? squeezeMerchandises
-  //       : merchandiseList;
-
-  //   setMerchandises(m);
-  // }, [selectedCategories, squeezeMerchandises, merchandiseList]);
 
   return (
     <Box>
@@ -52,6 +41,7 @@ const Products = () => {
                 name={m.attributes.merchandiseName}
                 price={m.attributes.price}
                 img={m.attributes.Image.data.attributes.url}
+                zaiko={m.attributes.zaiko}
               />
             ))
           }

@@ -1,4 +1,4 @@
-import { merchandiseLists } from "@/atom";
+import { merchandiseListsAtom } from "@/atom";
 import axios from "axios";
 import Products from "components/Products/Products";
 import { useAtom } from "jotai";
@@ -37,9 +37,9 @@ export async function getStaticProps(paths:any) {
 
 const Merchandise = (props: any) => {
   const { merchandise } = props;
-  const [merchandiseList,setMerchandiseLists] = useAtom(merchandiseLists)
+  const [merchandiseList,setMerchandiseLists] = useAtom(merchandiseListsAtom)
   setMerchandiseLists(merchandise)
-  
+
 
   return <Products />;
 };

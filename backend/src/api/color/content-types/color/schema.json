@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "colors",
+  "info": {
+    "singularName": "color",
+    "pluralName": "colors",
+    "displayName": "color",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "merchandise": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::merchandise.merchandise",
+      "inversedBy": "colors"
+    },
+    "colorName": {
+      "type": "string"
+    }
+  }
+}

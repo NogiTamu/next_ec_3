@@ -1,4 +1,4 @@
-import { ProductList } from "components/Products/ProductList";
+import { Categories } from "components/Products/Categories";
 import { Hero } from "./Hero";
 import Title from "./Title";
 
@@ -8,7 +8,7 @@ export const Main = () => {
         <>
           <Hero></Hero>
           <Title/>
-          <ProductList></ProductList>
+          <Categories />
         </>
     );
 }

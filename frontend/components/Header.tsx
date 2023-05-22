@@ -15,10 +15,10 @@ export const Header = () => {
               <Link href="/merchandise/mouse">マウス</Link>
             </li>
             <li>
-              <Link href="/merchandise//keybord">キーボード</Link>
+              <Link href="/merchandise/keybord">キーボード</Link>
             </li>
             <li>
-              <Link href="/merchandise//headphone">ヘッドフォン</Link>
+              <Link href="/merchandise/headphone">ヘッドフォン</Link>
             </li>
           </ul>
         </div>

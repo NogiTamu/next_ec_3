@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_categories",
+  "info": {
+    "singularName": "sub-category",
+    "pluralName": "sub-categories",
+    "displayName": "sub_category",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "merchandises": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::merchandise.merchandise",
+      "mappedBy": "sub_categories"
+    },
+    "sub_category": {
+      "type": "string"
+    },
+    "what": {
+      "type": "enumeration",
+      "enum": [
+        "connect",
+        "power",
+        "key"
+      ]
+    },
+    "display": {
+      "type": "string"
+    }
+  }
+}

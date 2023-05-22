@@ -32,7 +32,7 @@ const Inside = (props:Props) => {
   return (
     <Box  maxWidth="800px" w="50%">
       {merchandise.map((m, i) => (
-        <Container className={classes.container} w="100%">
+        <Container key={i} className={classes.container} w="100%">
           <Image src={m.img} alt="商品画像" width={120} height={120} />
           <Container className={classes.text}>
             <Detail merchandise={m} page={page}/>

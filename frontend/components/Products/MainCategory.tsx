@@ -1,12 +1,12 @@
 import Link from "next/link";
-import classes from "./styles/productLists.module.css";
+import classes from "./styles/MainCategory.module.css";
 
 type Props = {
   name: string,
   path:string
 };
 
-export const Product = (props: Props) => {
+export const MainCategory = (props: Props) => {
   const { name,path } = props;
 
   return (

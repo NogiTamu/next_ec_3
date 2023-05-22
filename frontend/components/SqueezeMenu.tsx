@@ -1,9 +1,12 @@
-import { merchandiseLists,selectedCategorie,squeezeMerchandise } from "@/atom";
+import {
+  merchandiseLists,
+  selectedCategorie,
+  squeezeMerchandise,
+} from "@/atom";
 import { gql, useQuery } from "@apollo/client";
 import { Checkbox, VStack } from "@chakra-ui/react";
 import { useAtom } from "jotai";
-
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const query = gql`
   {
@@ -33,7 +36,8 @@ const SqueezeMenu = () => {
     displayLists.push(sub.attributes.display.toString());
   });
 
-  const [selectedCategories, setSelectedCategories] = useAtom(selectedCategorie)
+  const [selectedCategories, setSelectedCategories] =
+    useAtom(selectedCategorie);
 
   const handleCategoryChange = (category) => {
     if (selectedCategories.includes(category)) {
@@ -43,16 +47,19 @@ const SqueezeMenu = () => {
     }
   };
 
-  const squeeze = merchandiseList.filter((list: any) =>
-    list.attributes.sub_categories.data.some(
-      (a) =>selectedCategories.includes(a.attributes.sub_category) 
-    )
-  );
 
-  useEffect(()=>{
-    setSqueezeMerchandises(squeeze) 
-  },[selectedCategories])
- 
+  useEffect(() => {
+    const squeeze =
+      selectedCategories.length !== 0
+        ? merchandiseList.filter((list: any) =>
+            list.attributes.sub_categories.data.some((a) =>
+              selectedCategories.includes(a.attributes.sub_category)
+            )
+          )
+        : merchandiseList;
+
+    setSqueezeMerchandises(squeeze);
+  }, [selectedCategories, merchandiseList]);
 
 
   return (

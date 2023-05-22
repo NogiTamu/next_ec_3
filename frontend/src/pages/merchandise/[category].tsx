@@ -41,7 +41,7 @@ const Merchandise = (props: any) => {
   setMerchandiseLists(merchandise)
   
 
-  return <Products merchandise={merchandiseList}/>;
+  return <Products />;
 };
 
 export default Merchandise;

@@ -1,9 +1,9 @@
-import { merchandiseLists } from "@/atom";
+import { merchandiseLists,selectedCategorie,squeezeMerchandise } from "@/atom";
 import { gql, useQuery } from "@apollo/client";
-import { Box, Checkbox, Text, VStack } from "@chakra-ui/react";
+import { Checkbox, VStack } from "@chakra-ui/react";
 import { useAtom } from "jotai";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const query = gql`
   {
@@ -23,17 +23,17 @@ type categoryType = {
 };
 const SqueezeMenu = () => {
   const [merchandiseList, setMerchandiseLists] = useAtom(merchandiseLists);
+  const [squeezeMerchandises, setSqueezeMerchandises] = useAtom(squeezeMerchandise);
   const { loading, error, data } = useQuery(query);
   const subCategory: string[] = [];
   const displayLists: string[] = [];
-  console.log(merchandiseList);
 
   data?.subCategories.data.map((sub: categoryType) => {
     subCategory.push(sub.attributes.sub_category.toString());
     displayLists.push(sub.attributes.display.toString());
   });
 
-  const [selectedCategories, setSelectedCategories] = useState<any>([]);
+  const [selectedCategories, setSelectedCategories] = useAtom(selectedCategorie)
 
   const handleCategoryChange = (category) => {
     if (selectedCategories.includes(category)) {
@@ -43,13 +43,17 @@ const SqueezeMenu = () => {
     }
   };
 
-  const squeezeMerchandise = merchandiseList.filter((list: any) =>
+  const squeeze = merchandiseList.filter((list: any) =>
     list.attributes.sub_categories.data.some(
-      (a) => a.attributes.sub_category === "Bluethooth"
+      (a) =>selectedCategories.includes(a.attributes.sub_category) 
     )
   );
-  
-  console.log(squeezeMerchandise);
+
+  useEffect(()=>{
+    setSqueezeMerchandises(squeeze) 
+  },[selectedCategories])
+ 
+
 
   return (
     <VStack flexBasis="20%" bg="red" h="calc(100vh - 100px)" align="start">
